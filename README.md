@@ -28,6 +28,9 @@ A scalable backend application built with **Node.js**, **Express**, and **Postgr
    ```text
       backend-project/
       │
+      ├── seed/
+      │   └── userSeed.js
+      │
       ├── controllers/
       │   └── userController.js
       │
@@ -86,4 +89,4 @@ Alisha Frontend & Backend Developer GitHub: @Alisha138
 - Integrate unit and integration testing
 - Add caching layer for performance
 
-Let me know if you want to include example SQL queries or a sample `db.js` file to show how you're connecting to PostgreSQL — I can whip that up for you too!
+Let me know if you want to include more SQL queries or a more sample `db.js` file to show how you're connecting to PostgreSQL — I can whip that up for you too!
