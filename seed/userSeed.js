@@ -1,3 +1,4 @@
+//controller folder will be the next one
 const pool = require('../config/db');
 
 const seedUsers = async () => {
@@ -13,11 +14,11 @@ const seedUsers = async () => {
     `);
 
     console.log('✅ Users seeded successfully');
-    process.exit(0);
+    process.exit(0);              //process.exit() says that now you have to exit node.js process and return a message (not shown directly), 0 for success 1 for failure
   } catch (err) {
     console.error('❌ Seeding failed:', err.message);
     process.exit(1);
   }
 };
 
-seedUsers();
+seedUsers();           //this object is not needed to import as is is not reused, it just needs a command to get run. Whenever we run that command it will be executed once and exite

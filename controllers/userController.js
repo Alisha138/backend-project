@@ -1,13 +1,14 @@
-const { getAllUsers } = require('../models/userModel');
+//next folder will be routes
+const { getAllUsers } = require('../models/userModel');      //it was exported in curly braces so imported will also be in curly braces
 
-const fetchUsers = async (req, res) => {
+const fetchUsers = async (req, res) => {        //req and res are Express request and response objects that are used to show output as a response.
   try {
     const users = await getAllUsers();
     console.log('✅ Users fetched:', users);
-    res.status(200).json(users);
+    res.status(200).json(users);                      //200 means ok
   } catch (err) {
     console.error('❌ Error in fetchUsers:', err.message);
-    res.status(500).json({ error: 'Failed to fetch users'  });
+    res.status(500).json({ error: 'Failed to fetch users'  });         //500 means internal server error
   }
 };
 
