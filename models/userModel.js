@@ -1,7 +1,10 @@
-//next folder will be seed
-const pool = require('../config/db');            //importing postgres connection pool in commonJS method
+//This file is to apply database queries in table. its also using node (async/await, module.exports) and postgres (pool.query())
+
+const pool = require("../config/db"); //importing postgres connection pool in commonJS method
+
 // Create users table if it doesn't exist
-const createUserTable = async () => {               //IF NOT EXISTS will make sure to avoid duplication
+const createUserTable = async () => {
+  //IF NOT EXISTS will make sure to avoid duplication
   const query = `     
     CREATE TABLE IF NOT EXISTS users (       
       id SERIAL PRIMARY KEY,
@@ -11,17 +14,18 @@ const createUserTable = async () => {               //IF NOT EXISTS will make su
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
   `;
-  try {                                //try/catch block for error handling (famous error handling technique)
-    await pool.query(query);          //pool.query() sends a SQLcommand to postgres. If query succeeds will move to next line else will to jump to catch block to throw error
-    console.log('✅ Users table created or already exists');
+  try {
+    //try/catch block for error handling technique
+    await pool.query(query); //pool.query() sends a SQLcommand to postgres. If query succeeds will move to next line else will to jump to catch block to throw error
+    console.log("✅ Users table created or already exists");
   } catch (err) {
-    console.error('❌ Error creating users table:', err.message);
+    console.error("❌ Error creating users table:", err.message);
   }
 };
 
-// Fetch all users
+//Fetch all users
 const getAllUsers = async () => {
-  const result = await pool.query('SELECT * FROM users');
+  const result = await pool.query("SELECT * FROM users");
   return result.rows;
 };
 
@@ -38,3 +42,5 @@ const getAllUsers = async () => {
 };*/
 
 module.exports = { createUserTable, getAllUsers };
+
+//next folder will be controller
